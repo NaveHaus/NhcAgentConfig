@@ -1,1 +1,0 @@
-Based on https://docs.cline.bot/prompting/cline-memory-bank.
