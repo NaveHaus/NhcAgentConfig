@@ -8,7 +8,12 @@ permission:
   edit: ask
   grep: allow
   list: allow
-  bash: ask
+  bash:
+    "ls *": allow
+    "find *": allow
+    "head *": allow
+    "tail *": allow
+    "openspec *": allow
   task: ask
   skill: allow
   lsp: allow
