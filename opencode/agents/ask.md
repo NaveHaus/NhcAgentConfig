@@ -8,7 +8,11 @@ permission:
   edit: deny
   grep: allow
   list: allow
-  bash: ask
+  bash:
+    "ls *": allow
+    "find *": allow
+    "head *": allow
+    "tail *": allow
   task: deny
   skill: ask
   lsp: ask
