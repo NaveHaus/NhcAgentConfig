@@ -5,7 +5,7 @@ mode: primary
 temperature: 0.5
 permission:
   read: allow
-  edit: ask
+  edit: allow
   grep: allow
   list: allow
   bash:
@@ -18,7 +18,7 @@ permission:
   skill: allow
   lsp: allow
   todoread: allow
-  webfetch: ask
+  webfetch: allow
   websearch: allow
 ---
 
