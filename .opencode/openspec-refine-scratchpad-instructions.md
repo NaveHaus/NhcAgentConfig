@@ -5,6 +5,8 @@ The scratchpad MUST be used to track the current issue list and working decision
 - The issue status MUST reflect the state of the openspec artifacts involved in the issue (see [Status Legen](#status-legend)).
 - DO NOT record the implemention status, as this is tracked by openspec artifacts separately.
 - The "Last updated" date MUST be kept current.
+- You MUST include best-practice search themes review if the user does not confirm prior to creating the scratchpad.
+- You MUST list issues in order of priority, i.e. P0, P1, P2, with the format `P<L>(i)`, where `L` is the level and `(i)` is the index of the issue in the list of all issues at level `<L>`.
 
 # EXAMPLE FILE
 
@@ -31,7 +33,7 @@ Last updated: YYYY-MM-DD
 
 ## Issue List
 
-### P0: ...
+### P0(1): ...
 - Status: <status>
 - Notes:
   - LIST ANY NOTES TO CLARIFY THE CURRENT STATUS CHOICE
@@ -39,9 +41,11 @@ Last updated: YYYY-MM-DD
   - `openspec/changes/<change-name>/...`
   - ...
 
-### P1: ...
+### P0(2): ...
 
-### P2: ...
+### P1(1): ...
+
+### P2(1): ...
 
 ...
 
