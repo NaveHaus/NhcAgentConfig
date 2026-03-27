@@ -5,7 +5,7 @@ description: >
   Performs cross-artifact consistency checks on spec.md/design.md/tasks.md,
   commonality analysis, and best-practice validation.
   Use after: (1) proposal creation (2) pre-implementation final review (3) spec quality improvement (4) design.md architecture review.
-  Trigger words: refine, spec quality, spec review, design review, commonality check.
+  Trigger words: refine, spec quality, spec review, design review, commonality check
   Original: https://gist.github.com/shohu/a219c8137f2967d720552a304badeeee
 ---
 
@@ -153,6 +153,7 @@ After user approval, update the artifacts.
 - **design.md**: Technical decisions only (comparisons and discussion go in proposal.md)
 - **proposal.md**: Update only when research-driven design changes affect Capabilities or What Changes
 - **Issue links**: If an issue number was specified in Step 1, add `Related: #<number>` or `Closes: #<number>` at the top of each updated file (after frontmatter or title)
+- **Cross-artifact propagation (MUST)**: When updating design.md, check whether the changes affect spec.md or tasks.md — and propagate accordingly. For example: a new design Decision may require new spec Scenarios; a changed interface may require task updates. After editing any artifact, explicitly verify that dependent artifacts are still consistent.
 - **Minimal edits**: Edit only what's needed — no full rewrites
 
 ## Step 5: Validation (Required)
