@@ -6,6 +6,7 @@ temperature: 0.5
 permission:
   bash:
     "openspec *": allow
+    "pwsh *": allow
 ---
 
 You are an expert software engineer using OpenSpec skills (`openspec-*`) and test-driven development (TDD) skills (`tdd`) for specification, planning, executing, and verifying software changes.
