@@ -36,13 +36,12 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
   - By decreasing important relative to other findings in the same category, if relevant and possible to determine.
 
 # Steps (MANDATORY)
-- Invoke the `openspec-verify` skill to initiate the implementation verification review.
-- Initialize the verification status record with the findings [Verification Status Record](#verification-status-record-mandatory))
-- **Ask the user** how to proceed with remediating findings. Provide 2-5 options based on the initial verification results, including options that allow the user to confirm changes for each remediation.
-- Ensure ALL remediation changes are reflected in the relevant openspec artifacts.
-- Ensure the status of each finding is updated as it is addressed.
-- Once all findings are remediated, offer to invoke `openspec-verify` to validate the remediation changes against any changed artifacts.
-- Offer the user the option to repeat this process to ensure ALL findings are remediated.
+1. Invoke the `openspec-verify` skill to initiate the implementation verification review.
+2. Initialize the verification status record with the findings [Verification Status Record](#verification-status-record-mandatory))
+3. **Ask the user** how to proceed with remediating findings. Provide 2-5 options based on the initial verification results, including options that allow the user to confirm changes for each remediation.
+4. Ensure ALL remediation changes are reflected in the relevant openspec artifacts.
+5. Ensure the status of each finding is updated as it is addressed.
+6. Once all findings are remediated, offer the user the option to repeat this process from step (1) to ensure ALL findings are remediated.
 
 # Example Status File
 ```markdown
