@@ -49,14 +49,14 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
 - You MUST wait for the user to respond before advancing from any step that requires asking the user a question.
 
 1. Determine if an `openspec-verify` round is in progress by evaluating one of these two decisions:
-  - **IF** `openspec/changes/<change-name>/verification-status.md` exists, **ask the user how to proceed** with the following options EXACTLY:
+  - **IF** `openspec/changes/<change-name>/verification-status.md` exists, **ask the user how to proceed** by presenting these options:
     1. Execute a verification using `openspec-verify` and **UPDATE** the existing file with new findings; or
     2. Execute a verification using `openspec-verify` and **REPLACE** the existing file with new findings; or
     3. Stop the round.
   - **IF** `openspec/changes/<change-name>/verification-status.md` does NOT exist:
     - Invoke the `openspec-verify` skill to initiate a new round; THEN
     - Create `openspec/changes/<change-name>/verification-status.md` with the initial findings (see [Verification Status Record](#verification-status-record-mandatory)).
-2. **Ask the user** how to proceed with remediation by presenting the most relevant options from the following list using the correct numbering:
+2. **Ask the user** how to proceed with remediation by presenting the most relevant options from this list using the correct numbering:
   1. Remediate all findings in one shot; or
   1. Remediate findings in a single severity group in one shot, with user confirmation before continuing to the next severity group; or
   1. Remediate findings one-at-a-time, with user confirmation to continue to the next finding after each one; or
@@ -64,11 +64,11 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
   1. Stop the verification round.
 3. **CRITICAL** Implement the remediation(s) ONLY for the selected finding(s) AND update the status of each finding as it is addressed.
 4. **CRITICAL** After implementing the remediation(s) for the selected finding(s), ensure that ALL relevant openspec artifacts are consistent with the change(s) made.
-5. **Ask the user** how to proceed with the round by presenting the following options EXACTLY:
+5. **Ask the user** how to proceed by presenting these options:
   1. Stage and commit the current remediation changes (if a `conventional-commit` skill is available, offer to use it); or
   2. **IF** there are any `Unresolved` findings remaining in `verification-status.md`, return to Step 2.
   3. **OTHERWISE** continue with Step 7.
-6. Once all findings have been remediated for the current round, **ask the user how to proceed** by presenting the following options EXACTLY:
+6. Once all findings have been remediated for the current round, **ask the user how to proceed** by presenting these options:
   1. Stage and commit any unstanged changes (if a `conventional-commit` skill is available, offer to use it); or
   2. Return to Step 1 and start a new `openspec-verify` round to check for additional or overlooked findings.
 
