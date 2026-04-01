@@ -27,6 +27,15 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
 - This file MUST be used to track the current status of findings and working decisions for the `<change-name>` change.
 - See [Example Status File](#example-scratchpad-file) for the required format.
 
+# Finding Remediation Status
+- Unresolved: The implementation does not match the change artifacts.
+- In progress: The implementation is being updated to remediate the finding.
+ Deferred: The finding will be fixed in a subsequent change:
+  - The user MAY explicitly request this this status for ALL severity levels.
+  - You MAY suggest this status for ALL severity levels, but the suggestion MUST be justified and it MUST be confirmed by the user before applying it.
+  - The user MUST be advised with a concrete reason NOT to select this status for `CRITICAL` findings.
+- Completed: The implementation has been made **Complete**, **Correct**, and **Coherent**
+
 # Status File Rules (MANDATORY)
 - The finding status MUST reflect the state of the openspec artifacts and source code involved (see [Status Legend](#status-legend)).
 - The "Last updated" date MUST be kept current.
@@ -42,12 +51,14 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
   - Remediate all findings in one shot; or
   - Remediate findings in a single severity group in one shot, with user confirmation before continuing to the next severity group; or
   - Remediate findings one-at-a-time, with user confirmation to continue to the next finding after each one; or
-  - Select one or more findings to remediate across all severity groups, with user confirmation after each one.
+  - Select one or more findings to remediate across all severity groups, with user confirmation after each one; or
+  - Stop the verification round.
 4. **IMPORTANT** Verify that relevant openspec artifacts are consistent with the change(s) made to remediate the selected finding(s).
-5. Ensure the status of each finding is updated as it is addressed.
-6. Once the findings have been remediated for the current `openspec-verify` round, offer:
-  - To stage and commit the current changes (if a `conventional-commit` skill is available, offer to use it); or
-  - To start a new `openspec-verify` round to check for missed problems.
+5. **IMPORTANT** Ensure the status of each finding is updated as it is addressed.
+6. If there are any `Unresolved` findings remaining in `verification-status.md`, return to Step 3. 
+7. Once all findings have been remediated for the current `openspec-verify` round, offer:
+  - To stage and commit the current remediation changes (if a `conventional-commit` skill is available, offer to use it); or
+  - To start a new `openspec-verify` round to check for any new or overlooked problems.
 
 # Example Status File
 ```markdown
@@ -62,10 +73,7 @@ Last updated: YYYY-MM-DD
 ## Status Legend
 - Unresolved: The implementation does not match the change artifacts.
 - In progress: The implementation is being updated to remediate the finding.
- Deferred: The finding will be fixed in a subsequent change:
-  - The user MAY explicitly request this this status for ALL severity levels.
-  - You MAY suggest this status for ALL severity levels, but the suggestion MUST be justified and it MUST be confirmed by the user before applying it.
-  - The user MUST be advised with a concrete reason NOT to select this status for `CRITICAL` findings.
+- Deferred: The finding will be fixed in a subsequent change.
 - Completed: The implementation has been made **Complete**, **Correct**, and **Coherent**
 
 ## Key References
