@@ -20,7 +20,7 @@ Write commit messages following Conventional Commits v1.0.0.
 1. YOU MUST determine if there are changes to be committed using the following steps:
   - Evaluate the output of `git diff --name-only --staged`:
   - IF no output was returned:
-    - Announce that no staged changes were found and suggest that user stage the changes to be commited
+    - Announce that no staged changes were found and suggest that user stage the changes to be commited.
     - STOP
   - IF the output contains "error: unknown option 'staged'":
     - Announce that the current working directory is probably not a git repository.
@@ -36,7 +36,7 @@ Write commit messages following Conventional Commits v1.0.0.
 ## Required Format
 
 ```
-<type>[optional scope]: <description>
+<type>[optional scope]: <one-line description>
 
 [optional body]
 
@@ -45,11 +45,11 @@ Write commit messages following Conventional Commits v1.0.0.
 
 ## Rules
 
-1. Prefix with type, optional scope in parentheses, `!` for breaking changes, colon, then space
-2. Description immediately follows the colon and space
-3. Body separated by one blank line, free-form
-4. Footers one blank line after body, token-separator-value format
-5. Indicate a breaking change by including `!` before `:`
+1. Prefix with type, optional scope in parentheses, `!` for breaking changes, colon, then space.
+2. Description immediately follows the colon and space.
+3. Body separated by one blank line, free-form.
+4. Footers one blank line after body, token-separator-value format.
+5. Indicate a breaking change by including `!` before `:`.
 
 ## Commit Types
 
@@ -84,38 +84,39 @@ Write commit messages following Conventional Commits v1.0.0.
 
 ## Best Practices
 
-### Description
-- Use fewer than 50 characters if the result is sufficiently clear, up to 72 otherwise
-- Use an imperative mood ("add" not "added")
-- Do not capitalize the first letter
-- Do not add a period at the end
-- Try to clearly and succinctly summarize WHAT was done in the description so that the scope can normally be omitted
+### Description (MANDATORY)
+- You MUST fewer than 50 characters if the result is sufficiently clear, up to 72 otherwise.
+- You MUST use an imperative mood ("add" not "added").
+- DO NOT capitalize the first letter.
+- DO NOT add a period at the end.
+- You MUST clearly and succinctly summarize WHAT was done, not HOW or WHY.
 
-### Scope
-- The scope should generally be a defined capability or section of the codebase, not to a single file or function
-- Include a scope only if:
-  - It cannot be clearly inferred from the description what part of the codebase changed; or
-  - The user provides an explicit scope
-- Never include a scope if the user explicitly asks for it to be omitted
-- When the scope is included, use clear, consistent, and brief names; e.g. `feat(auth)`, `fix(api)`, `docs(user)`, `docs(dev)`
+### Scope (OPTIONAL)
+- The scope MUST be a defined subsystem or section of the codebase, not an individual file, function, concept, etc.
+- DO include a scope if:
+  - The subsystem or section of the codebase cannot be clearly inferred from the one-line description; or
+  - The user provides an explicit scope.
+- DO NOT include a scope if the user explicitly asks for it to be omitted.
+- You MUST **ask the user** for clarification if the scope is unclear or ambiguous.
+- You MUST use clear, consistent, and brief names for scopes, e.g. `feat(auth)`, `fix(api)`, `docs(user)`, `docs(dev)`.
 
-### Body
-- Include only when a change requires more explanation than can be provided in the description
-- If a body is included:
-  - Succinctly describe what problem the change solves
-  - Explain WHY the change was made, not HOW or WHAT was changed
-  - Wrap at 72 characters per line
+### Body (OPTIONAL)
+- You MUST include a body for complex changes that require more explanation than can be provided in the description.
+- You MUST succinctly describe WHAT problem the change solves.
+- You MUST explain WHY the change was made, not HOW or WHAT was changed.
+- You MUST wrap the body at 72 characters per line.
 
-### Footers
-- Do not include any footers unless explicitly requested by the user
+### Footers (MANDATORY)
+- DO NOT include footers unless explicitly requested by the user.
 
 ### General
-- Prefer a single-line (i.e. description only) commit message when the number and/or scope of changes is small; e.g.:
+- You MUST use a single-line (i.e. description only) commit message for simple or minor changes, e.g.:
   - No more than 20 single-line changes across 5 or fewer files
   - The addition of 2 or fewer files with a well-defined purpose that can be described in a single line
-- If unsure about the commit message format or content, or if the content to be summarized is ambiguous or unclear, ask the user for clarification
+- You MUST **ask the user** if you are unsure about the commit message description or body format or content.
+- You MUST **ask the user** if the content to be summarized is ambiguous or unclear.
 
-## Steps
+## Steps (CRITICAL)
 1. Determine what should be summarized in the commit message:
   - If the content to be summarized was provided:
     - Proceed to Step 2.
