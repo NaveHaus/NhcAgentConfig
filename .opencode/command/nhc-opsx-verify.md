@@ -45,6 +45,9 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
   - By decreasing important relative to other findings in the same category, if relevant and possible to determine.
 
 # Steps (MANDATORY)
+- **CRITICAL**: Before performing any action, you MUST state the current step number you are executing (e.g., `Executing Step X:`).
+- You MUST wait for the user to respond before advancing from any step that requires asking the user a question.
+
 1. Invoke the `openspec-verify` skill to initiate the implementation verification review round if a round has not already started (`openspec/changes/<change-name>/verification-status.md` does not exist).
 2. If the verification status file does not exist, create one for the current round with the initial findings (see [Verification Status Record](#verification-status-record-mandatory))
 3. **Ask the user** how to proceed with remediation, e.g. by presenting options to:
@@ -57,7 +60,7 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
 5. **IMPORTANT** Ensure the status of each finding is updated as it is addressed.
 6. **Ask the user** how to proceed with the following options:
   - Stage and commit the current remediation changes (if a `conventional-commit` skill is available, offer to use it); or
-  - **IF** there are any `Unresolved` findings remaining in `verification-status.md`, suggest returning to Step 3. 
+  - **ONLY IF** there are any `Unresolved` findings remaining in `verification-status.md`, suggest returning to Step 3. 
   - **OTHERWISE** continue with Step 7.
 7. Once all findings have been remediated for the current `openspec-verify` round, **ask the user how to proceed** with the following options:
   - Stage and commit any unstanged changes (if a `conventional-commit` skill is available, offer to use it); or
