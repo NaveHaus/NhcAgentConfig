@@ -55,10 +55,13 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
   - Stop the verification round.
 4. **IMPORTANT** Verify that relevant openspec artifacts are consistent with the change(s) made to remediate the selected finding(s).
 5. **IMPORTANT** Ensure the status of each finding is updated as it is addressed.
-6. If there are any `Unresolved` findings remaining in `verification-status.md`, return to Step 3. 
-7. Once all findings have been remediated for the current `openspec-verify` round, offer:
-  - To stage and commit the current remediation changes (if a `conventional-commit` skill is available, offer to use it); or
-  - To start a new `openspec-verify` round to check for any new or overlooked problems.
+6. **Ask the user** how to proceed with the following options:
+  - Stage and commit the current remediation changes (if a `conventional-commit` skill is available, offer to use it); or
+  - **IF** there are any `Unresolved` findings remaining in `verification-status.md`, suggest returning to Step 3. 
+  - **OTHERWISE** continue with Step 7.
+7. Once all findings have been remediated for the current `openspec-verify` round, **ask the user how to proceed** with the following options:
+  - Stage and commit any unstanged changes (if a `conventional-commit` skill is available, offer to use it); or
+  - Start a new `openspec-verify` round to check for any new or overlooked problems.
 
 # Example Status File
 ```markdown
