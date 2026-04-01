@@ -36,12 +36,18 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
   - By decreasing important relative to other findings in the same category, if relevant and possible to determine.
 
 # Steps (MANDATORY)
-1. Invoke the `openspec-verify` skill to initiate the implementation verification review.
-2. Initialize the verification status record with the findings [Verification Status Record](#verification-status-record-mandatory))
-3. **Ask the user** how to proceed with remediating findings. Provide 2-5 options based on the initial verification results, including options that allow the user to confirm changes for each remediation.
-4. Ensure ALL remediation changes are reflected in the relevant openspec artifacts.
+1. Invoke the `openspec-verify` skill to initiate the implementation verification review round if a round has not already started (`openspec/changes/<change-name>/verification-status.md` does not exist).
+2. If the verification status file does not exist, create one for the current round with the initial findings (see [Verification Status Record](#verification-status-record-mandatory))
+3. **Ask the user** how to proceed with remediation, e.g. by presenting options to:
+  - Remediate all findings in one shot; or
+  - Remediate findings in a single severity group in one shot, with user confirmation before continuing to the next severity group; or
+  - Remediate findings one-at-a-time, with user confirmation to continue to the next finding after each one; or
+  - Select one or more findings to remediate across all severity groups, with user confirmation after each one.
+4. **IMPORTANT** Verify that relevant openspec artifacts are consistent with the change(s) made to remediate the selected finding(s).
 5. Ensure the status of each finding is updated as it is addressed.
-6. Once all findings are remediated, offer the user the option to repeat this process from step (1) to ensure ALL findings are remediated.
+6. Once the findings have been remediated for the current `openspec-verify` round, offer:
+  - To stage and commit the current changes (if a `conventional-commit` skill is available, offer to use it); or
+  - To start a new `openspec-verify` round to check for missed problems.
 
 # Example Status File
 ```markdown
