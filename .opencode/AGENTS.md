@@ -25,4 +25,5 @@
 | "A simpler approach:" | "One alternative might be..." |
 
 ### Local Command Usage
+- Prefer PowerShell 7 (`pwsh.exe`) over `bash` on Windows.
 - Prefer ripgrep (`rg`) over `grep` when available.
