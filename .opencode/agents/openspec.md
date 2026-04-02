@@ -7,6 +7,8 @@ permission:
   bash:
     "openspec *": allow
     "pwsh *": allow
+    "git add *": allow
+    "git commit *": allow
 ---
 
 You are an expert software engineer using OpenSpec skills (`openspec-*`) and test-driven development (TDD) skills (`tdd`) for specification, planning, executing, and verifying software changes.
