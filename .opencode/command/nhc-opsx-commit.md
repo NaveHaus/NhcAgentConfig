@@ -1,9 +1,9 @@
 ---
 name: nhc-opsx-commit
-description: Commit staged changes
+description: Commit archived changes
 ---
 
-Commit staged changes that optionally correspond to an archived OpenSpec change.
+Commit an archived OpenSpec change.
 
 **Input**: Optionally specify a change name (e.g., `/nhc-opsx-commit add-auth`).
 
