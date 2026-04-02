@@ -8,7 +8,7 @@ license: MIT
 
 Write commit messages following Conventional Commits v1.0.0.
 
-**Input**: Optionally specify the content to be summarized, e.g. a list of one or more files or raw text.
+**Input**: Optionally specify the content to be summarized, e.g. a list of one or more files, raw text, or description of the files that must be included.
 
 ## Requirements (MANDATORY)
 - Follow all steps exactly as presented.
@@ -17,21 +17,20 @@ Write commit messages following Conventional Commits v1.0.0.
 - DO NOT execute any `git` commands other than those specified by this skill.
 
 ## Prerequisites
-1. YOU MUST determine if there are changes to be committed using the following steps:
-  - Evaluate the output of `git diff --name-only --staged`:
-  - IF no output was returned:
-    - Announce that no staged changes were found and suggest that user stage the changes to be commited.
-    - STOP
-  - IF the output contains "error: unknown option 'staged'":
+YOU MUST determine if there are changes to be committed based on the following decisions:
+- Evaluate the output of `git diff --name-only --staged`:
+  - **IF** no output was returned:
+    - Announce that no staged changes were found; then
+    - **IF** the files to be staged can be clearly inferred from the content to be summarized, offer to stage those files.
+    - **OTHERWISE** suggest that the user stage the files OR describe which files should be included. DO NOT GUESS.
+  - **IF** the output contains "error: unknown option 'staged'":
     - Announce that the current working directory is probably not a git repository.
     - Give the user the option of manually specifying the repository directory:
-      - IF the user chooses not to provide a directory: STOP
-      - Otherwise: proceed with the next step.
-  - Otherwise:
-    - Present the user with a summary of the error.
-    - Suggest 1-2 remediation strategies if you understand the error and how to fix it. Do NOT fabricate or guess at remediation strategies.
-    - Suggest re-running the command after the error has been corrected.
-    - STOP
+      - **IF** the user chooses to provide a directory:
+        - Present the user with a summary of the error.
+        - Suggest 1-2 remediation strategies if you understand the error and how to fix it. Do NOT fabricate or guess at remediation strategies.
+        - Suggest re-running the command after the error has been corrected.
+      - **OTHERWISE** STOP
 
 ## Required Format
 
@@ -118,26 +117,24 @@ Write commit messages following Conventional Commits v1.0.0.
 
 ## Steps (CRITICAL)
 1. Determine what should be summarized in the commit message:
-  - If the content to be summarized was provided:
-    - Proceed to Step 2.
-  - Otherwise: use the output of `git diff --staged` as the content to summarize
+  - **IF* the content to be summarized was provided, proceed to Step 2.
+  - **OTHERWISE** use the output of `git diff --staged` as the content to summarize
 
-2. Prepare the commit message:
-  - Run `git log --oneline -5` to review and incorporate the style of recent commit messages
+2. Prepare the commit:
+  - Run `git log --oneline -10` to review and incorporate the style of recent commit messages
   - Determine the message type from the content to be summarized by following [Determining the Message Type](#determining-the-message-type)
   - Generate the commit message from the content to be summarized by following [Best Practices](#best-practices)
+  - **IF** a single directory holds all changes to be committed, 
 
 3. Complete the commit:
-  - **IMPORTANT**: Every action in this step is **MANDATORY**.
-  - Show the commit message to the user, then use the **AskUserQuestion tool** to present the user with the following options:
-    - Use the generated commit message
-    - Enter a custom commit message
-  - Present the full git commit command to the user based on the selection (`git commit -m <message>`), then use the **AskUserQuestion tool** to ask the user for confirmation that the command is acceptable.
-  - **IF AND ONLY IF** the user confirms that the command is acceptable:
-    - Complete the commit by running the full git command exactly as shown to the user.
-  - Otherwise:
-    - Announce that the commit has been cancelled
-    - STOP
+    > **IMPORTANT**: Every action in this step is **MANDATORY**.
+
+  - Show the proposed `git commit` command to the user, then **ask the user** how to proceed:
+    - Complete the commit; or
+    - Enter a custom commit message; or
+    - Cancel the commit.
+  - **IF** the user chooses to complete the commit, you MUST execute the `git commit` command exactly as presented to the user.
+  - **OTHERWISE** acknowledge that the commit has been cancelled.
 
 ## References
 - [Conventional Commits specification v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/#specification)
