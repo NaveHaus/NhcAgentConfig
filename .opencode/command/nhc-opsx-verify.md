@@ -67,7 +67,7 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
 5. **Ask the user** how to proceed by presenting these options:
   1. Stage and commit the current remediation changes (if a `conventional-commit` skill is available, offer to use it); or
   2. **IF** there are any `Unresolved` findings remaining in `verification-status.md`, return to Step 2.
-  3. **OTHERWISE** continue with Step 7.
+  3. **OTHERWISE** continue with Step 6.
 6. Once all findings have been remediated for the current round, **ask the user how to proceed** by presenting these options:
   1. Stage and commit any unstanged changes (if a `conventional-commit` skill is available, offer to use it); or
   2. Return to Step 1 and start a new `openspec-verify` round to check for additional or overlooked findings.
