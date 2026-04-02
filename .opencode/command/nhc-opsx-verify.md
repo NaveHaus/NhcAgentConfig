@@ -56,11 +56,10 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
   - **IF** `openspec/changes/<change-name>/verification-status.md` does NOT exist:
     - Invoke the `openspec-verify` skill to initiate a new round; THEN
     - Create `openspec/changes/<change-name>/verification-status.md` with the initial findings (see [Verification Status Record](#verification-status-record-mandatory)).
-2. **Ask the user** how to proceed with remediation by presenting the most relevant options from this list using the correct numbering:
-  1. Remediate all findings in one shot; or
-  1. Remediate findings in a single severity group in one shot, with user confirmation before continuing to the next severity group; or
-  1. Remediate findings one-at-a-time, with user confirmation to continue to the next finding after each one; or
-  1. Select one or more findings to remediate across all severity groups, with user confirmation after each one; or
+2. **Ask the user** how to proceed with remediation (evaluate the decisions and present a numbered list of matching choices with the correct numbering):
+  1. **IF** there are 2 or more findings: Select findings to remediate one-at-a-time, with user confirmation to continue after remediating each finding (if this is selected you MUST present the user with a list findings ordered by decreasing severity, including an "all" option); or
+  1. **IF** there are 2 or more findings: Remediate all findings in one shot; or
+  1. **IF** there is 1 finding: Remediate the last finding, <finding-text>; or
   1. Stop the verification round.
 3. **CRITICAL** Implement the remediation(s) ONLY for the selected finding(s) AND update the status of each finding as it is addressed.
 4. **CRITICAL** After implementing the remediation(s) for the selected finding(s), ensure that ALL relevant openspec artifacts are consistent with the change(s) made.
