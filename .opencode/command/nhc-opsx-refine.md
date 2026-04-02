@@ -11,7 +11,7 @@ Perform cross-artifact consistency checks on spec.md/design.md/tasks.md, commona
 
 **If no change name provided, prompt for selection**
 
-   Run `openspec list --json` to get available changes. Use the **AskUserQuestion tool** to let the user select.
+   Run `openspec list --json` to get available changes. **Ask the user** to select a change.
 
    Show only active changes (not already archived).
    Include the schema used for each change if available.
