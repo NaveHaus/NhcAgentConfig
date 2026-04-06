@@ -96,6 +96,38 @@ RIGHT (vertical):
 - DO NOT anticipate future tests.
 - DO NOT implement code outside the bounds of the user-provided specification.
 
+## Test Task Artifact Structure
+- Use when recording testing tasks to an artifact prior to implementation, e.g. in spec-driven development.
+- Related behaviors to be tested MUST be grouped into numbered sections with descriptive titles.
+- Append `(RED -> GREEN -> REFACTOR)` to section titles to signal the expected rhythm.
+- Example:
+  ```markdown
+  ## 3. Host Gating + Configured Single FQDN (RED -> GREEN -> REFACTOR)
+  ```
+### Task Format
+- Use decimal notation: `<section>.<sequence>` (e.g., `3.1`, `3.2`).
+- Prefix every task with its TDD phase: `RED:`, `GREEN:`, or `REFACTOR:`.
+- Use checkbox format for tracking: `- [ ]` (pending) or `- [x]` (done).
+- Example:
+  ```markdown
+  - [ ] 3.1 RED: Add a failing test that non-target host exits 0 with no side effects.
+  - [ ] 3.2 GREEN: Implement host gating to satisfy the test.
+  - [ ] 3.3 REFACTOR: Extract a small decision function so gating is testable without IO.
+  ```
+### Phase Pairing
+- A `RED:` task MUST be immediately followed by a `GREEN:` task that satisfies it.
+- `REFACTOR:` tasks MUST come at the end of a section or after a RED/GREEN pair when cleanup is needed.
+- Phases MAY be combined ONLY when the scope is trivially small: `GREEN+REFACTOR:`.
+### Task Descriptions
+- Describe **observable behavior**, not implementation mechanics.
+- Use phrases like:
+  - "Add a failing test that..."
+  - "Implement the minimal ... to satisfy the test"
+  - "Extract/Isolate ... so ... remains testable"
+- Avoid:
+  - Implementation-specific language ("create class X", "call method Y")
+  - Speculative abstractions before the RED phase reveals need
+
 ## Definition of Done
 - All behaviors defined by the user-provided specification have tests AND
 - All tests pass AND
