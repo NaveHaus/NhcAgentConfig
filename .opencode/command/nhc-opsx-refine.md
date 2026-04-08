@@ -18,12 +18,15 @@ Perform cross-artifact consistency checks on spec.md/design.md/tasks.md, commona
 
    **IMPORTANT**: Do NOT guess or auto-select a change. Always let the user choose.
 
+# Terminology
+- Both "issues" and "gaps" refer to the same concept of a mismatch or discrepancy in one or more artifacts.
+
 # Requirements (MANDATORY)
 - DO follow the steps EXACTLY.
 - DO NOT add, remove, or modify steps.
 
 # Quality Review Scratchpad (MANDATORY)
-- Create the scratchpad file `openspec/changes/<change-name>/scratchpad.md` to track the current status of issues found by openspec-refine.
+- Create the scratchpad file `openspec/changes/<change-name>/scratchpad.md` to track the current status of issues found by `openspec-refine`.
 - The scratchpad MUST be used to track the current issue list and working decisions for the `<change-name>` change.
 - See [Example Scratchpad File](#example-scratchpad-file) for the required scratchpad format.
 
@@ -31,11 +34,13 @@ Perform cross-artifact consistency checks on spec.md/design.md/tasks.md, commona
 - The issue status MUST reflect the state of the openspec artifacts involved in the issue (see [Status Legend](#status-legend)).
 - DO NOT record the implemention status, as this is tracked by openspec artifacts separately.
 - The "Last updated" date MUST be kept current.
-- You MUST include best-practice search themes review if the user does not confirm prior to creating the scratchpad.
+- You MUST present the user with best-practice search themes to review prior to creating or updating the scratchpad.
 - You MUST list issues in order of priority, i.e. P0, P1, P2, with the format `P<L>(i)`, where `L` is the level and `(i)` is the index of the issue in the list of all issues at level `<L>`.
 
 # Steps (MANDATORY)
 - Invoke the `openspec-refine` skill to complete the openspec artifact quality review.
+- You MUST propose an improvement strategy if issues exist.
+- DO NOT proceed with addressing issues without user confirmation of the issues to fix.
 
 # Example Scratchpad File
 ```markdown
