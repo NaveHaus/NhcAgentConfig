@@ -3,7 +3,7 @@
 Opinionated instructions, skills, prompts, and other configurations for agentic spec-driven development.
 
 # Dependencies/Requirements
-- [`openspec` 1.2.0](https://github.com/Fission-AI/OpenSpec/releases/tag/v1.2.0)
+- [`openspec` 1.3.0](https://github.com/Fission-AI/OpenSpec/releases/tag/v1.3.0)
 - [`opencode` v1.4+](https://github.com/anomalyco/opencode/releases/tag/v1.4.0)
 
 # Experimental
