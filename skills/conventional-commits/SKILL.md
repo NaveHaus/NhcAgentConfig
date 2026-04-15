@@ -2,16 +2,18 @@
 name: conventional-commits
 description: Use the Conventional Commits v1.0.0 standard to generate git messages. Use to generate semantically consistent commit messages that support automated changelog generation and semantic versioning.
 license: MIT
+metadata:
+  author: NaveHaus Consulting LLC
 ---
 
 # Conventional Commits Skill
 
 Write commit messages following Conventional Commits v1.0.0.
 
-**Input**: Optionally specify the content to be summarized, e.g. a list of one or more files, raw text, or description of the files that must be included.
+**Input**: Optionally specify the **Content to summarize**, e.g. a list of one or more files, raw text, or description of the files that must be included.
 
 ## Requirements (MANDATORY)
-- Follow all steps exactly as presented.
+- DO follow all steps EXACTLY.
 - DO NOT add, remove or modify steps.
 - DO NOT proceed with the final `git commit` without confirmation from the user.
 - DO NOT execute any `git` commands other than those specified by this skill.
