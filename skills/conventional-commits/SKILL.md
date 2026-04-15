@@ -20,19 +20,15 @@ Write commit messages following Conventional Commits v1.0.0.
 
 ## Prerequisites
 YOU MUST determine if there are changes to be committed based on the following decisions:
-- Evaluate the output of `git diff --name-only --staged`:
+- Evaluate the output of `git diff --name-only`:
   - **IF** no output was returned:
-    - Announce that no staged changes were found; then
-    - **IF** the files to be staged can be clearly inferred from the content to be summarized, offer to stage those files.
+    - Announce that no changes were found; then
+    - **IF** the files to be committed can be clearly inferred from the content to be summarized, offer to `git add` those files.
     - **OTHERWISE** suggest that the user stage the files OR describe which files should be included. DO NOT GUESS.
-  - **IF** the output contains "error: unknown option 'staged'":
-    - Announce that the current working directory is probably not a git repository.
-    - Give the user the option of manually specifying the repository directory:
-      - **IF** the user chooses to provide a directory:
-        - Present the user with a summary of the error.
-        - Suggest 1-2 remediation strategies if you understand the error and how to fix it. Do NOT fabricate or guess at remediation strategies.
-        - Suggest re-running the command after the error has been corrected.
-      - **OTHERWISE** STOP
+  - **IF** an error was returned:
+    - Summarize the error.
+    - **IF** you understand the error, present the with a **NUMBERED** list of 1-3 remediation strategies, then **ask the user** how to proceed.
+      > **IMPORTANT** Include an option to stop the commit.
 
 ## Required Format
 
@@ -119,7 +115,7 @@ YOU MUST determine if there are changes to be committed based on the following d
 
 ## Steps (CRITICAL)
 1. Determine what should be summarized in the commit message:
-  - **IF* the content to be summarized was provided, proceed to Step 2.
+  - **IF** the content to be summarized was provided, proceed to Step 2.
   - **OTHERWISE** use the output of `git diff --staged` as the content to summarize
 
 2. Prepare the commit:
@@ -129,10 +125,10 @@ YOU MUST determine if there are changes to be committed based on the following d
   - **IF** a single directory holds all changes to be committed, 
 
 3. Complete the commit:
-    > **IMPORTANT**: Every action in this step is **MANDATORY**.
+  > **IMPORTANT**: Every action in this step is **MANDATORY**.
 
   - Show the proposed `git commit` command to the user, then **ask the user** how to proceed:
-    - Complete the commit; or
+    - Complete the commit with the exact command; or
     - Enter a custom commit message; or
     - Cancel the commit.
   - **IF** the user chooses to complete the commit, you MUST execute the `git commit` command exactly as presented to the user.
