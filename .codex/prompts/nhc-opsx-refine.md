@@ -30,6 +30,15 @@ Perform cross-artifact consistency checks on spec.md/design.md/tasks.md, commona
 - The scratchpad MUST be used to track the current issue list and working decisions for the `<change-name>` change.
 - See [Example Scratchpad File](#example-scratchpad-file) for the required scratchpad format.
 
+# Issue Status Labels
+- Open: Not yet captured consistently in OpenSpec artifacts.
+- Needs refinement: Partially captured; artifacts still need clarifications/consistency work.
+- Consistent: Artifacts are aligned with current intended behavior (may still evolve as scope grows).
+- Accepted: User accepted the affected artifact(s) as-is.
+  - The user MAY explicitly request this this status for ALL priorities.
+  - You MAY suggest this status for ALL priorities, but the suggestion MUST be justified and it MUST be confirmed by the user before applying it.
+  - The user MUST be advised with a concrete reason NOT to select this status for P2 issues.
+
 # Scratchpad Rules (MANDATORY)
 - The issue status MUST reflect the state of the openspec artifacts involved in the issue (see [Status Legend](#status-legend)).
 - DO NOT record the implemention status, as this is tracked by openspec artifacts separately.
@@ -56,6 +65,7 @@ Last updated: YYYY-MM-DD
 - Open: Not yet captured consistently in OpenSpec artifacts.
 - Needs refinement: Partially captured; artifacts still need clarifications/consistency work.
 - Consistent: Artifacts are aligned with current intended behavior (may still evolve as scope grows).
+- Accepted: User accepted the affected artifact(s) as-is.
 
 ## Key References
 
