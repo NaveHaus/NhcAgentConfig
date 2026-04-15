@@ -127,10 +127,11 @@ YOU MUST determine if there are changes to be committed based on the following d
 3. Complete the commit:
   > **IMPORTANT**: Every action in this step is **MANDATORY**.
 
-  - Show the proposed `git commit` command to the user, then **ask the user** how to proceed:
-    - Complete the commit with the exact command; or
-    - Enter a custom commit message; or
-    - Cancel the commit.
+  - Present the proposed `git commit` command to the user.
+  - Present the user with a **NUMBERED** list of the following options, then **ask the user** how to proceed:
+    1. Complete the commit with the exact command; or
+    2. Enter a custom commit message; or
+    3. Cancel the commit.
   - **IF** the user chooses to complete the commit, you MUST execute the `git commit` command exactly as presented to the user.
   - **OTHERWISE** acknowledge that the commit has been cancelled.
 
