@@ -37,7 +37,7 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
 - Completed: The implementation has been made **Complete**, **Correct**, and **Coherent**
 
 # Status File Rules (MANDATORY)
-- The finding status MUST reflect the state of the openspec artifacts and source code involved (see [Status Legend](#status-legend)).
+- The finding status MUST reflect the state of the openspec artifacts and source code involved (see [Remediation Status Labels](#remediation-status-labels) and [Status Legend](#status-legend)).
 - The "Last updated" date MUST be kept current.
 - You MUST list groups of findings in order of severity, i.e. `CRITICAL`, `WARNING`, and `SUGGESTION`, using a numbered list to annotate the findings in the group.
 - You MUST order the findings in each group:
@@ -57,10 +57,12 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
     - Invoke the `openspec-verify` skill to initiate a new round; THEN
     - Create `openspec/changes/<change-name>/verification-status.md` with the initial findings (see [Verification Status Record](#verification-status-record-mandatory)).
 2. **Ask the user** how to proceed with remediation. Evaluate each of the following **IF** statements, present the user with a **CORRECTLY NUMBERED** list of the choices following the correct **IF** statements, then **ask the user** to select ONE choice by number:
-  1. **IF** there are 2 or more findings: Select findings to remediate one-at-a-time, with user confirmation to continue after remediating each finding. (**IMPORTANT** If the user selects this option, you MUST present the user with a list of findings ordered by decreasing severity, including an "all" option)
+  1. **IF** there are 2 or more findings: Select findings to remediate one-at-a-time, with user confirmation to continue after remediating each finding.
+    > **IMPORTANT** If the user selects this option, you MUST present the user with a **NUMBERED** list of findings ordered by decreasing severity, including an "all" option.
   1. **IF** there are 2 or more findings: Remediate all findings in one shot.
   1. **IF** there is 1 finding: Remediate the last finding (<finding-text>).
   1. Stop the verification round.
+    > **IMPORTANT** Always include this option.
 3. **CRITICAL**:
   - You MUST implement the remediation(s) ONLY for the finding(s) selected by the user.
   - You MUST update the status of each finding using a defined Status Label as it is being addressed (see [Remediation Status Labels](#remediation-status-labels)).

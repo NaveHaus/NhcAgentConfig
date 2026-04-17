@@ -37,7 +37,7 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
 - Completed: The implementation has been made **Complete**, **Correct**, and **Coherent**
 
 # Status File Rules (MANDATORY)
-- The finding status MUST reflect the state of the openspec artifacts and source code involved (see [Status Legend](#status-legend)).
+- The finding status MUST reflect the state of the openspec artifacts and source code involved (see [Remediation Status Labels](#remediation-status-labels) and [Status Legend](#status-legend)).
 - The "Last updated" date MUST be kept current.
 - You MUST list groups of findings in order of severity, i.e. `CRITICAL`, `WARNING`, and `SUGGESTION`, using a numbered list to annotate the findings in the group.
 - You MUST order the findings in each group:
