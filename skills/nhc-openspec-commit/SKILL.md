@@ -18,19 +18,23 @@ metadata:
 ## Steps
 
 1. **If an OpenSpec change name is NOT explicitly provided by the user**: create a list of directories containing uncommited OpenSpec changes using the following commands:
-  - Generate list of unstaged current changes:
+  - Generate list of untracked OpenSpec changes:
+    ```
+    git ls-files --others --exclude-standard | rg -o '^openspec/changes/[^/]+' | rg -v '^openspec/changes/archive/.*' | sort -u
+    ```
+  - Generate list of unstaged OpenSpec changes:
     ```
     git diff --name-only | rg -o '^openspec/changes/[^/]+' | rg -v '^openspec/changes/archive/.*' | sort -u
     ```
-  - Generate list of staged current changes:
+  - Generate list of staged OpenSpec changes:
     ```
     git diff --staged --name-only | rg -o '^openspec/changes/[^/]+' | rg -v '^openspec/changes/archive/.*' | sort -u
     ```
-  - Generate list of unstaged archived changes:
+  - Generate list of unstaged archived OpenSpec changes:
     ```
     git diff --name-only | rg -o '^openspec/changes/archive/[0-9]{4}-[0-9]{2}-[0-9]{2}-[^/]+' | sort -u
     ```
-  - Generate list of staged archived changes:
+  - Generate list of staged archived OpenSpec changes:
     ```
     git diff --staged --name-only | rg -o '^openspec/changes/archive/[0-9]{4}-[0-9]{2}-[0-9]{2}-[^/]+' | sort -u
     ```
