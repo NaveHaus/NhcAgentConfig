@@ -1,0 +1,5 @@
+prefix_rule(
+    pattern = ["openspec"],
+    decision = "allow",
+    justification = "Allow OpenSpec commands to run without prompting",
+)

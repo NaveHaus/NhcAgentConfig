@@ -1,0 +1,65 @@
+prefix_rule(
+    pattern = ["git"],
+    decision = "allow",
+    justification = "Allow routine git commands without prompting",
+)
+
+prefix_rule(
+    pattern = ["git", "branch"],
+    decision = "allow",
+    justification = "Allow branch inspection commands without prompting",
+)
+
+prefix_rule(
+    pattern = ["git", "tag"],
+    decision = "allow",
+    justification = "Allow tag inspection commands without prompting",
+)
+
+prefix_rule(
+    pattern = ["git", "stash", ["list", "show"]],
+    decision = "allow",
+    justification = "Allow stash inspection commands without prompting",
+)
+
+prefix_rule(
+    pattern = ["git", "remote"],
+    decision = "allow",
+    justification = "Allow remote inspection commands without prompting",
+)
+
+prefix_rule(
+    pattern = ["git", "worktree", ["list"]],
+    decision = "allow",
+    justification = "Allow worktree inspection commands without prompting",
+)
+
+prefix_rule(
+    pattern = ["git", "branch", ["-d", "-D", "-m", "-M", "-c", "-C", "--set-upstream-to", "-u", "--unset-upstream", "--edit-description", "--track", "--no-track", "--recurse-submodules", "-f"]],
+    decision = "prompt",
+    justification = "Prompt before running branch commands that change refs or tracking",
+)
+
+prefix_rule(
+    pattern = ["git", "tag", ["-d", "-D", "-f"]],
+    decision = "prompt",
+    justification = "Prompt before running tag commands that delete or overwrite tags",
+)
+
+prefix_rule(
+    pattern = ["git", "stash", ["push", "save", "drop", "pop", "apply", "branch", "clear", "create", "store", "export", "import"]],
+    decision = "prompt",
+    justification = "Prompt before running stash commands that modify stash state",
+)
+
+prefix_rule(
+    pattern = ["git", "remote", ["add", "remove", "rename", "set-head", "set-url", "prune", "update"]],
+    decision = "prompt",
+    justification = "Prompt before running remote commands that mutate remotes or refs",
+)
+
+prefix_rule(
+    pattern = ["git", "worktree", ["add", "remove", "move", "prune", "lock", "unlock", "repair"]],
+    decision = "prompt",
+    justification = "Prompt before running worktree commands that modify worktrees",
+)
