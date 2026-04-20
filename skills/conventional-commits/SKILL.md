@@ -10,7 +10,7 @@ metadata:
 
 Write commit messages following Conventional Commits v1.0.0.
 
-**Input**: Optionally specify the **Content to summarize**, e.g. a list of one or more files, raw text, or description of the files that must be included.
+**Input**: Optionally specify the **Content to summarize**, e.g. a list of one or more files, raw text, or a description of the files that must be included.
 
 ## Requirements (MANDATORY)
 - DO follow all steps EXACTLY.
@@ -20,9 +20,14 @@ Write commit messages following Conventional Commits v1.0.0.
 
 ## Prerequisites
 YOU MUST determine if there are changes to be committed based on the following decisions:
-- Evaluate the output of `git diff --name-only`:
+
+- Evaluate each of the following **IF** statements using the output of `git diff --name-only`, then follow the instructions for EXACTLY ONE matching **IF** statement:
   - **IF** no output was returned:
     - Announce that no changes were found; then
+    - **IF** the files to be committed can be clearly inferred from the content to be summarized, offer to `git add` those files.
+    - **OTHERWISE** suggest that the user stage the files OR describe which files should be included. DO NOT GUESS.
+  - **IF** untracked files were returned:
+    - Announce that untracked files were found; then
     - **IF** the files to be committed can be clearly inferred from the content to be summarized, offer to `git add` those files.
     - **OTHERWISE** suggest that the user stage the files OR describe which files should be included. DO NOT GUESS.
   - **IF** an error was returned:
@@ -82,11 +87,12 @@ YOU MUST determine if there are changes to be committed based on the following d
 ## Best Practices
 
 ### Description (MANDATORY)
-- You MUST fewer than 50 characters if the result is sufficiently clear, up to 72 otherwise.
+- You MUST clearly and succinctly summarize WHAT was done, not HOW or WHY.
+- You MUST use no more than 50 characters if the resulting description accurately describes WHAT was done.
+- You MAY use up to 72 characters if doing so would make the description clearer and/or more accurate.
 - You MUST use an imperative mood ("add" not "added").
 - DO NOT capitalize the first letter.
 - DO NOT add a period at the end.
-- You MUST clearly and succinctly summarize WHAT was done, not HOW or WHY.
 
 ### Scope (OPTIONAL)
 - The scope MUST be a defined subsystem or section of the codebase, not an individual file, function, concept, etc.
@@ -94,7 +100,7 @@ YOU MUST determine if there are changes to be committed based on the following d
   - The subsystem or section of the codebase cannot be clearly inferred from the one-line description; or
   - The user provides an explicit scope.
 - DO NOT include a scope if the user explicitly asks for it to be omitted.
-- You MUST **ask the user** for clarification if the scope is unclear or ambiguous.
+- You MUST **ask the user** for clarification if the scope is unclear or ambiguous. DO NOT GUESS.
 - You MUST use clear, consistent, and brief names for scopes, e.g. `feat(auth)`, `fix(api)`, `docs(user)`, `docs(dev)`.
 
 ### Body (OPTIONAL)

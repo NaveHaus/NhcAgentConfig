@@ -52,6 +52,6 @@ metadata:
     - Generate the **Content to summarize** from the path to `proposal.md` under the matched change path the user selected.
   - **IF the user selects two or more changes to commit**:
     - Announce "Generating commit for changes: <change-name>, <change-name>, ...".
-    - Generate the **Content to summarize** from the list of paths to `proposal.md` files under all of the matched change paths the user selected.
+    - Generate the **Content to summarize** as the list of paths to `proposal.md` files under all of the matched change paths the user selected.
 4. **Complete the commit**:
   - Invoke the `conventional-commits` skill to complete the commit with the generated **Content to summarize**.
