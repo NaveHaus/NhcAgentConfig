@@ -35,7 +35,7 @@ YOU MUST determine if there are changes to be committed based on the following d
     - **IF** you understand the error, present the with a **NUMBERED** list of 1-3 remediation strategies, then **ask the user** how to proceed.
       > **IMPORTANT** Include an option to stop the commit.
 
-## Required Format
+## Required Message Format
 
 ```
 <type>[optional scope]: <one-line description>
@@ -45,9 +45,9 @@ YOU MUST determine if there are changes to be committed based on the following d
 [optional footer(s)]
 ```
 
-## Rules
+## Message Rules
 
-1. Prefix with type, optional scope in parentheses, `!` for breaking changes, colon, then space.
+1. Prefix the description with a type, optional scope in parentheses, `!` for breaking changes, colon, then space.
 2. Description immediately follows the colon and space.
 3. Body separated by one blank line, free-form.
 4. Footers one blank line after body, token-separator-value format.
