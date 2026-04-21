@@ -1,12 +1,10 @@
 ---
-name: conventional-commits
+name: nhc-conventional-commit
 description: Use the Conventional Commits v1.0.0 standard to generate git messages. Use to generate semantically consistent commit messages that support automated changelog generation and semantic versioning.
 license: MIT
 metadata:
   author: NaveHaus Consulting LLC
 ---
-
-# Conventional Commits Skill
 
 Write commit messages following Conventional Commits v1.0.0.
 
