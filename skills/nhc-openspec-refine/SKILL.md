@@ -36,24 +36,16 @@ Perform cross-artifact consistency checks on `spec.md`, `design.md`, and `tasks.
 
   > **IMPORTANT** Read all existing artifacts (`proposal.md`, `design.md`, `tasks.md`, `specs/*.md`) from the change directory.
 
-  - **IF** `openspec/changes/<change-name>/scratchpad.md` does NOT exist: create `openspec/changes/<change-name>/scratchpad.md` using the format in [Scratchpad Format](#scratchpad-format)
-  - **OTHERWISE**: present the user a **NUMBERED** list of the following options, and **ask the user** how to proceed:
-    1. Update the scratchpad with new issues
-    2. Replace the scratchpad with new issues
-    3. Stop the refinement.
-
-  > **IMPORTANT**: You MUST follow the rules in [Scratchpad Rules](#scratchpad-rules) to maintain the scratchpad.
-
 2. **Create or continue the scratchpad**
 
   Evaluate the following two **IF** statements, then execute the command following the ONE correct **IF** statement:
+  - **IF** `openspec/changes/<change-name>/scratchpad.md` does NOT exist: create `openspec/changes/<change-name>/scratchpad.md` using the format in [Scratchpad Format](#scratchpad-format)
   - **IF** `openspec/changes/<change-name>/scratchpad.md` exists: present the following options to the user as a **NUMBERED** list, then **ask the user** to select ONE option to proceed with:
     - Perform a new review and **UPDATE** the existing file with new issues
     - Perform a new review and **REPLACE** the existing file with new issues
     - Address unresolved issues in the scratchpad.
       > **IMPORTANT**: If the user selects this option, continue with **Execute remediation strategy**.
     - Stop the refinement.
-  - **IF** `openspec/changes/<change-name>/scratchpad.md` does NOT exist: create `openspec/changes/<change-name>/scratchpad.md` using the format in [Scratchpad Format](#scratchpad-format)
 
   > **IMPORTANT**: You MUST follow the rules in [Scratchpad Rules](#scratchpad-rules) to maintain the scratchpad.
 
