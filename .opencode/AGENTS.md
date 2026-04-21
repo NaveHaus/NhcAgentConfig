@@ -1,5 +1,9 @@
 ## Common Agent Rules and Guidelines
 
+### Security and Safety (MANDATORY)
+To maintain system integrity, agents MUST follow these rules:
+- **No Secrets**: You MUST NOT expose secrets, API keys, sensitive environment variables, or credentials in direct web requests, command line calls, or tool calls.
+
 ### Communication Style
 <!-- Inspired by https://github.com/m0n0x41d/quint-code/blob/029597cd8060ef09455b4157caf4374e8995469e/CLAUDE.md -->
 **Be a peer software engineering expert, not a cheerleader or a coach.**
