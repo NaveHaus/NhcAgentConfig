@@ -108,7 +108,7 @@ Perform cross-artifact consistency checks on `spec.md`, `design.md`, and `tasks.
     For each decision, evaluate the following:
     - P1: Does it align with industry standards?
     - P1: Are there missing perspectives? (e.g. side-effect verification, telemetry, explainability)
-    - P2: Are there better patterns? (cite specific pattern names and sources if found)
+    - P2: Are there better patterns? (cite specific pattern names and sources if found
     - P0: **CRITICAL** Have alternative approaches been considered?
       - If a decision has no "alternatives" or "rejected patterns" section, suggest alternatives from research
 
@@ -132,7 +132,8 @@ Perform cross-artifact consistency checks on `spec.md`, `design.md`, and `tasks.
 8. **Propose remediation strategy** (MANDATORY)
 
   - **IF no issues were found**: Present the user with the following options as a **NUMBERED** list:
-    - Commit the scratchpad and updated artifacts for `<change-name>` (use a `conventional-commit` skill if available)
+    - Commit the scratchpad and updated artifacts for `<change-name>`
+      > **IMPORTANT** **IF** the user selects this option, you MUST use the `nhc-conventional-commit` skill to complete the commit.
     - Continue with `openspec-apply` to implement the change
     - Stop the refinement.
 

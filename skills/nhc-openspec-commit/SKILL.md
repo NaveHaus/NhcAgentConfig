@@ -54,4 +54,4 @@ metadata:
     - Announce "Generating commit for changes: <change-name>, <change-name>, ...".
     - Generate the **Content to summarize** as the list of paths to `proposal.md` files under all of the matched change paths the user selected.
 4. **Complete the commit**:
-  - Invoke the `conventional-commits` skill to complete the commit with the generated **Content to summarize**.
+  - Invoke the `nhc-conventional-commit` skill to complete the commit with the generated **Content to summarize**.
