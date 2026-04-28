@@ -29,5 +29,5 @@ To maintain system integrity, agents MUST follow these rules:
 | "A simpler approach:" | "One alternative might be..." |
 
 ### Local Command Usage
-- Prefer PowerShell 7 commands and cmdlets on Windows, not `bash` and Unix-like commands.
-- Prefer ripgrep (`rg`) over `grep`.
+- Use PowerShell 7 commands and cmdlets on Windows with proper string quoting.
+- Use ripgrep (`rg`) when available, not `grep`.
