@@ -42,7 +42,7 @@ Perform cross-artifact consistency checks on `spec.md`, `design.md`, and `tasks.
   - **IF** `openspec/changes/<change-name>/scratchpad.md` exists: present the following options to the user as a **NUMBERED** list, then **ask the user** to select ONE option to proceed with:
     - Perform a new review and **UPDATE** the existing file with new issues
     - Perform a new review and **REPLACE** the existing file with new issues
-    - Address unresolved issues in the scratchpad.
+    - Address unresolved issues in the scratchpad. (ONLY show this option **IF** `scratchpad.md` contains unresolved issues.)
       > **IMPORTANT**: If the user selects this option, continue with **Execute remediation strategy**.
     - Stop the refinement.
 
