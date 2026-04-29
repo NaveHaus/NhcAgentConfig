@@ -17,21 +17,18 @@ Write commit messages following Conventional Commits v1.0.0.
 - DO NOT execute any `git` commands other than those specified by this skill.
 
 ## Prerequisites
-YOU MUST determine if there are changes to be committed based on the following decisions:
-
-- Evaluate each of the following **IF** statements using the output of `git diff --name-only`, then follow the instructions for EXACTLY ONE true **IF** statement:
-  - **IF** no output was returned:
-    - Announce that no changes were found; then
-    - **IF** the files to be committed can be clearly inferred from the content to be summarized, offer to `git add` those files.
-    - **OTHERWISE** suggest that the user stage the files OR describe which files should be included. DO NOT GUESS.
-  - **IF** untracked files were returned:
-    - Announce that untracked files were found; then
-    - **IF** the files to be committed can be clearly inferred from the content to be summarized, offer to `git add` those files.
-    - **OTHERWISE** suggest that the user stage the files OR describe which files should be included. DO NOT GUESS.
-  - **IF** an error was returned:
-    - Summarize the error.
-    - **IF** you understand the error, present the with a **NUMBERED** list of 1-3 remediation strategies, then **ask the user** how to proceed.
-      > **IMPORTANT** Include an option to stop the commit.
+Evaluate each of the following **IF** statements using the output of `git status --porcelain=v1`, then follow the instructions for EXACTLY ONE true **IF** statement:
+- **IF** no output was returned:
+  - Announce that no changes were found; THEN
+  - Stop the commit.
+- **IF** an error was returned:
+  - Summarize the error; THEN
+  - **Ask the user** how to proceed.
+    > **IMPORTANT** Include an option to stop the commit.
+- **IF** untracked files (`?? <path>`) were returned:
+  - Present the user with a **NUMBERED** list of the untracked files; THEN
+  - **Ask the user** which untracked files should be included (`git add`).
+    > **IMPORTANT** Include a 'none' option.
 
 ## Required Message Format
 
