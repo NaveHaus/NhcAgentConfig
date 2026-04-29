@@ -88,6 +88,13 @@ implementation verification process; it is NOT a spec artifact.
 
 Last updated: YYYY-MM-DD
 
+### Summary
+| Dimension    | Status           |
+|--------------|------------------|
+| Completeness | X/Y tasks, N reqs|
+| Correctness  | M/N reqs covered |
+| Coherence    | Followed/Issues  |
+
 ## Status Legend
 - Unresolved: The implementation does not match the change artifacts.
 - In progress: The implementation is being updated to remediate the finding.
@@ -102,7 +109,7 @@ Last updated: YYYY-MM-DD
 
 - LIST ANY CONSTRAINTS OR DECISIONS AFFECTING REMEDIATION OF THE FINDING CURRENTLY BEING ADDRESSED
 
-## Findings List
+## Findings List by Priority
 
 ### CRITICAL
 1. Description of the first `CRITICAL` finding, in dependency-then-decreasing-importance order
