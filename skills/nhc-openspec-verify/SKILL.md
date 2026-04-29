@@ -47,10 +47,14 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
   - By decreasing important relative to other findings in the same category, if relevant and possible to determine.
 
 # Steps (MANDATORY)
-- **CRITICAL**: Before performing any action, you MUST state the current step number you are executing (e.g., `Executing Step X:`).
-- You MUST wait for the user to respond before advancing from any step that requires asking the user a question.
+**CRITICAL**:
+- Before performing any action, you MUST state the current step number you are executing (e.g., `Executing Step X:`).
+- You MUST wait for the user to respond before advancing from any step that requires user input.
+- You MUST implement the remediation(s) ONLY for the finding(s) selected by the user.
+- You MUST update the status of each finding using a defined Status Label as it is being addressed (see [Remediation Status Labels](#remediation-status-labels)).
+- You MUST ensure that ALL relevant openspec artifacts are consistent with your changes.
 
-1. Determine if an verification round is in progress. Evaluate the two following **IF** statements, then execute the command following the ONE correct **IF** statement:
+1. Determine if an verification round is in progress. Evaluate the two following **IF** statements, then execute the command following the ONE true **IF** statement:
   - **IF** `openspec/changes/\<change-name\>/verification-status.md` exists: present the following options to the user, then **ask the user** to select ONE option to proceed with:
     1. Execute a verification using the `openspec-verify` skill and **UPDATE** the existing file with new findings.
     2. Execute a verification using the `openspec-verify` skill and **REPLACE** the existing file with new findings.
@@ -58,7 +62,7 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
   - **IF** `openspec/changes/\<change-name\>/verification-status.md` does NOT exist:
     - Invoke the `openspec-verify` skill to initiate a new round; THEN
     - Create `openspec/changes/\<change-name\>/verification-status.md` with the initial findings (see [Example Verification Status File](#example-verification-status-file)).
-2. **Ask the user** how to proceed. Evaluate each of the following **IF** statements, present the user with a **CORRECTLY NUMBERED** list of the choices following the correct **IF** statements, then **ask the user** to select ONE choice by number:
+2. **Ask the user** how to proceed. Evaluate each of the following **IF** statements, present the user with a **CORRECTLY NUMBERED** list of the choices following the true **IF** statements, then **ask the user** to select ONE choice by number:
   1. **IF** there is **EXACTLY** 1 finding: Remediate \<finding-summary\>.
     > **IMPORTANT** \<finding-summary\>
   1. **IF** there are 2 or more findings: Select findings to remediate one-at-a-time, with user confirmation to continue after remediating each finding.
@@ -66,17 +70,13 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
   1. **IF** there are 2 or more findings: Remediate all findings in one shot.
   1. Stop the verification round.
     > **IMPORTANT** Always include this option.
-3. **CRITICAL**:
-  - You MUST implement the remediation(s) ONLY for the finding(s) selected by the user.
-  - You MUST update the status of each finding using a defined Status Label as it is being addressed (see [Remediation Status Labels](#remediation-status-labels)).
-4. **CRITICAL** After implementing the remediation(s) for all finding(s) selected by the user:
-  - Ensure that ALL relevant openspec artifacts are consistent with the change(s) made.
-  - Offer to stage and and `nhc-conventional-commit` the current remediation changes.
-5. **Ask the user** how to proceed. Evaluate each of the following **IF** statements, present the user with a **CORRECTLY NUMBERED** list of the choices following the correct **IF** statements, then **ask the user** to select ONE choice by number:
+3. **Ask the user** how to proceed. Evaluate each of the following **IF** statements, present the user with a **CORRECTLY NUMBERED** list of the choices following the true **IF** statements, then **ask the user** to select ONE choice by number:
   1. **IF** all findings are `Completed` in `verification-status.md`: Start a new round to check for additional or overlooked findings.
     > **IMPORTANT** If the user selects this option, return to Step 1.
   1. **IF** there are `Unresolved` findings remaining in `verification-status.md`: Continue remediation.
     > **IMPORTANT** If the user selects this option, return to Step 2.
+  1. **IF** there are uncommited verification changes: Stage and `nhc-conventional-commit` the current remediation changes.
+    > **IMPORTANT** If the user selects this option, return to Step 3.
   1. Stop the verification round.
     > **IMPORTANT** Always include this option.
 

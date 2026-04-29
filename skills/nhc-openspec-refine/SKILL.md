@@ -37,7 +37,7 @@ Perform cross-artifact consistency checks on `spec.md`, `design.md`, and `tasks.
 
 2. **Create or continue the scratchpad**
 
-  Evaluate the following two **IF** statements, then execute the command following the ONE correct **IF** statement:
+  Evaluate the following two **IF** statements, then execute the command following the ONE true **IF** statement:
   - **IF** `openspec/changes/<change-name>/scratchpad.md` does NOT exist: create `openspec/changes/<change-name>/scratchpad.md` using the format in [Scratchpad Format](#scratchpad-format)
   - **IF** `openspec/changes/<change-name>/scratchpad.md` exists: present the following options to the user as a **NUMBERED** list, then **ask the user** to select ONE option to proceed with:
     - Perform a new review and **UPDATE** the existing file with new issues
@@ -153,7 +153,7 @@ Perform cross-artifact consistency checks on `spec.md`, `design.md`, and `tasks.
       ...
       ## P2
       ...
-    - Evaluate each of the following **IF** statements, present the user with a **NUMBERED** list of the remediation strategies following the correct **IF** statements, then **ask the user** to select ONE choice by number:
+    - Evaluate each of the following **IF** statements, present the user with a **NUMBERED** list of the remediation strategies following the true **IF** statements, then **ask the user** to select ONE choice by number:
       - Remediate all issues
       - Remediate major (P0) issues only
       - Remediate a selection of issues

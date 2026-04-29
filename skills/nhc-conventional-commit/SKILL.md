@@ -19,7 +19,7 @@ Write commit messages following Conventional Commits v1.0.0.
 ## Prerequisites
 YOU MUST determine if there are changes to be committed based on the following decisions:
 
-- Evaluate each of the following **IF** statements using the output of `git diff --name-only`, then follow the instructions for EXACTLY ONE matching **IF** statement:
+- Evaluate each of the following **IF** statements using the output of `git diff --name-only`, then follow the instructions for EXACTLY ONE true **IF** statement:
   - **IF** no output was returned:
     - Announce that no changes were found; then
     - **IF** the files to be committed can be clearly inferred from the content to be summarized, offer to `git add` those files.

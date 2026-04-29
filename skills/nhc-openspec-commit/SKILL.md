@@ -38,7 +38,7 @@ metadata:
     ```
     git diff --staged --name-only | rg -o '^openspec/changes/archive/[0-9]{4}-[0-9]{2}-[0-9]{2}-[^/]+' | sort -u
     ```
-2. **Ask the user** how to proceed with commit. Evaluate each of the following **IF** statements, present the user with a **CORRECTLY NUMBERED** list of the choices following the correct **IF** statements, then **ask the user** to select ONE choice by number:
+2. **Ask the user** how to proceed with commit. Evaluate each of the following **IF** statements, present the user with a **CORRECTLY NUMBERED** list of the choices following the true **IF** statements, then **ask the user** to select ONE choice by number:
   1. **IF the directory list contains EXACTLY one matched change path**: Commit `\<change-name\>`.
     > **IMPORTANT** Deduce the `\<change-name\>` to display from the matched change path.
   1. **IF the directory list contains two or more matched change paths**: Select one or more changes to include in the commit.
