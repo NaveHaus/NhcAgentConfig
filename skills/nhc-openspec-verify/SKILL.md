@@ -25,7 +25,7 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
 - DO NOT add, remove, or modify steps.
 
 # Verification Status Record (MANDATORY)
-- Create the file `openspec/changes/\<change-name\>/verification-status.md` to track the current status of findings surfaced by openspec-verify.
+- Create the file `openspec/changes/\<change-name\>/verification-status.md` to track the current status of findings surfaced by the `openspec-verify` skill.
 - This file MUST be used to track the current status of findings and working decisions for the `\<change-name\>` change.
 - See [Example Verification Status File](#example-verification-status-file) for the required format.
 
@@ -50,10 +50,10 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
 - **CRITICAL**: Before performing any action, you MUST state the current step number you are executing (e.g., `Executing Step X:`).
 - You MUST wait for the user to respond before advancing from any step that requires asking the user a question.
 
-1. Determine if an `openspec-verify` round is in progress. Evaluate the two following **IF** statements, then execute the command following the ONE correct **IF** statement:
+1. Determine if an verification round is in progress. Evaluate the two following **IF** statements, then execute the command following the ONE correct **IF** statement:
   - **IF** `openspec/changes/\<change-name\>/verification-status.md` exists: present the following options to the user, then **ask the user** to select ONE option to proceed with:
-    1. Execute a verification using `openspec-verify` and **UPDATE** the existing file with new findings.
-    2. Execute a verification using `openspec-verify` and **REPLACE** the existing file with new findings.
+    1. Execute a verification using the `openspec-verify` skill and **UPDATE** the existing file with new findings.
+    2. Execute a verification using the `openspec-verify` skill and **REPLACE** the existing file with new findings.
     3. Stop the round.
   - **IF** `openspec/changes/\<change-name\>/verification-status.md` does NOT exist:
     - Invoke the `openspec-verify` skill to initiate a new round; THEN
@@ -84,7 +84,7 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
 ```markdown
 ## \<change-name\> Verification Status
 
-This file tracks the current openspec-verify findings list and working decisions
+This file tracks the current `openspec-verify` findings list and working decisions
 for the implementation of the `\<change-name\>` change. Treat this as the running memory for the
 implementation verification process; it is NOT a spec artifact.
 
