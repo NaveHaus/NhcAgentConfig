@@ -25,9 +25,9 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
 - DO NOT add, remove, or modify steps.
 
 # Verification Status Record (MANDATORY)
-- Create the file `openspec/changes/<change-name>/verification-status.md` to track the current status of findings surfaced by openspec-verify.
-- This file MUST be used to track the current status of findings and working decisions for the `<change-name>` change.
-- See [Example Status File](#example-scratchpad-file) for the required format.
+- Create the file `openspec/changes/\<change-name\>/verification-status.md` to track the current status of findings surfaced by openspec-verify.
+- This file MUST be used to track the current status of findings and working decisions for the `\<change-name\>` change.
+- See [Example Verification Status File](#example-verification-status-file) for the required format.
 
 # Remediation Status Labels
 - Unresolved: The implementation does not match the change artifacts.
@@ -39,7 +39,7 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
 - Completed: The implementation has been made **Complete**, **Correct**, and **Coherent**
 
 # Status File Rules (MANDATORY)
-- The finding status MUST reflect the state of the openspec artifacts and source code involved (see [Remediation Status Labels](#remediation-status-labels) and [Status Legend](#status-legend)).
+- The finding status MUST reflect the state of the openspec artifacts and source code involved (see [Remediation Status Labels](#remediation-status-labels)).
 - The "Last updated" date MUST be kept current.
 - You MUST list groups of findings in order of severity, i.e. `CRITICAL`, `WARNING`, and `SUGGESTION`, using a numbered list to annotate the findings in the group.
 - You MUST order the findings in each group:
@@ -51,18 +51,19 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
 - You MUST wait for the user to respond before advancing from any step that requires asking the user a question.
 
 1. Determine if an `openspec-verify` round is in progress. Evaluate the two following **IF** statements, then execute the command following the ONE correct **IF** statement:
-  - **IF** `openspec/changes/<change-name>/verification-status.md` exists: present the following options to the user, then **ask the user** to select ONE option to proceed with:
+  - **IF** `openspec/changes/\<change-name\>/verification-status.md` exists: present the following options to the user, then **ask the user** to select ONE option to proceed with:
     1. Execute a verification using `openspec-verify` and **UPDATE** the existing file with new findings.
     2. Execute a verification using `openspec-verify` and **REPLACE** the existing file with new findings.
     3. Stop the round.
-  - **IF** `openspec/changes/<change-name>/verification-status.md` does NOT exist:
+  - **IF** `openspec/changes/\<change-name\>/verification-status.md` does NOT exist:
     - Invoke the `openspec-verify` skill to initiate a new round; THEN
-    - Create `openspec/changes/<change-name>/verification-status.md` with the initial findings (see [Verification Status Record](#verification-status-record-mandatory)).
-2. **Ask the user** how to proceed with remediation. Evaluate each of the following **IF** statements, present the user with a **CORRECTLY NUMBERED** list of the choices following the correct **IF** statements, then **ask the user** to select ONE choice by number:
+    - Create `openspec/changes/\<change-name\>/verification-status.md` with the initial findings (see [Example Verification Status File](#example-verification-status-file)).
+2. **Ask the user** how to proceed. Evaluate each of the following **IF** statements, present the user with a **CORRECTLY NUMBERED** list of the choices following the correct **IF** statements, then **ask the user** to select ONE choice by number:
+  1. **IF** there is **EXACTLY** 1 finding: Remediate \<finding-summary\>.
+    > **IMPORTANT** \<finding-summary\>
   1. **IF** there are 2 or more findings: Select findings to remediate one-at-a-time, with user confirmation to continue after remediating each finding.
-    > **IMPORTANT** If the user selects this option, you MUST present the user with a **NUMBERED** list of findings ordered by decreasing severity, including an "all" option.
+    > **IMPORTANT** If the user selects this option, you MUST present the user with a **CORRECTLY NUMBERED** list of findings ordered by decreasing severity, including an "all" option.
   1. **IF** there are 2 or more findings: Remediate all findings in one shot.
-  1. **IF** there is 1 finding: Remediate the last finding (<finding-text>).
   1. Stop the verification round.
     > **IMPORTANT** Always include this option.
 3. **CRITICAL**:
@@ -70,20 +71,21 @@ Verify that an implementation matches the change artifacts (specs, tasks, design
   - You MUST update the status of each finding using a defined Status Label as it is being addressed (see [Remediation Status Labels](#remediation-status-labels)).
 4. **CRITICAL** After implementing the remediation(s) for all finding(s) selected by the user:
   - Ensure that ALL relevant openspec artifacts are consistent with the change(s) made.
-5. **Ask the user** how to proceed by presenting these options:
-  1. Stage and commit the current remediation changes (if a `conventional-commit` skill is available, offer to use it); or
-  2. **IF** there are any `Unresolved` findings remaining in `verification-status.md`, return to Step 2.
-  3. **OTHERWISE** continue with Step 6.
-6. Once all findings have been remediated for the current round, **ask the user how to proceed** by presenting these options:
-  1. Stage and commit any unstanged changes (if a `conventional-commit` skill is available, offer to use it); or
-  2. Return to Step 1 and start a new `openspec-verify` round to check for additional or overlooked findings.
+  - Offer to stage and and `nhc-conventional-commit` the current remediation changes.
+5. **Ask the user** how to proceed. Evaluate each of the following **IF** statements, present the user with a **CORRECTLY NUMBERED** list of the choices following the correct **IF** statements, then **ask the user** to select ONE choice by number:
+  1. **IF** all findings are `Completed` in `verification-status.md`: Start a new round to check for additional or overlooked findings.
+    > **IMPORTANT** If the user selects this option, return to Step 1.
+  1. **IF** there are `Unresolved` findings remaining in `verification-status.md`: Continue remediation.
+    > **IMPORTANT** If the user selects this option, return to Step 2.
+  1. Stop the verification round.
+    > **IMPORTANT** Always include this option.
 
 # Example Verification Status File
 ```markdown
-## <change-name> Verification Status
+## \<change-name\> Verification Status
 
 This file tracks the current openspec-verify findings list and working decisions
-for the implementation of the `<change-name>` change. Treat this as the running memory for the
+for the implementation of the `\<change-name\>` change. Treat this as the running memory for the
 implementation verification process; it is NOT a spec artifact.
 
 Last updated: YYYY-MM-DD
@@ -94,12 +96,6 @@ Last updated: YYYY-MM-DD
 | Completeness | X/Y tasks, N reqs|
 | Correctness  | M/N reqs covered |
 | Coherence    | Followed/Issues  |
-
-## Status Legend
-- Unresolved: The implementation does not match the change artifacts.
-- In progress: The implementation is being updated to remediate the finding.
-- Deferred: The finding will be fixed in a subsequent change.
-- Completed: The implementation has been made **Complete**, **Correct**, and **Coherent**
 
 ## Key References
 
@@ -113,42 +109,42 @@ Last updated: YYYY-MM-DD
 
 ### CRITICAL
 1. Description of the first `CRITICAL` finding, in dependency-then-decreasing-importance order
-  - Status: <status-label>
+  - Status: \<status-label\>
   - Notes:
     - LIST ANY NOTES TO CLARIFY THE CURRENT STATUS DECISION
   - Artifacts touched:
-    - `openspec/changes/<change-name>/...`
+    - `openspec/changes/\<change-name\>/...`
     - ...
   - Sources touched, using relative paths:
-    - <relative path>/...
+    - \<relative path\>/...
 
 2. ...
 
 ### WARNING
 
 1. Description of the first `WARNING` finding, in dependency-then-decreasing-importance order
-  - Status: <status-label>
+  - Status: \<status-label\>
   - Notes:
     - LIST ANY NOTES TO CLARIFY THE CURRENT STATUS DECISION
   - Artifacts touched:
-    - `openspec/changes/<change-name>/...`
+    - `openspec/changes/\<change-name\>/...`
     - ...
   - Sources touched, using relative paths:
-    - <relative path>/...
+    - \<relative path\>/...
 
 2. ...
 
 ### SUGGESTION
 
 1. Description of the first `SUGGESTION` finding, in dependency-then-decreasing-importance order
-  - Status: <status-label>
+  - Status: \<status-label\>
   - Notes:
     - LIST ANY NOTES TO CLARIFY THE CURRENT STATUS DECISION
   - Artifacts touched:
-    - `openspec/changes/<change-name>/...`
+    - `openspec/changes/\<change-name\>/...`
     - ...
   - Sources touched, using relative paths:
-    - <relative path>/...
+    - \<relative path\>/...
 
 2. ...
 
